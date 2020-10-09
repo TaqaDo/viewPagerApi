@@ -32,12 +32,12 @@ import java.util.ArrayList;
 
 public class HomeFragment extends Fragment {
 
-    RecyclerView recyclerView;
-    PostAdapter postAdapter;
+    private RecyclerView recyclerView;
+    private PostAdapter postAdapter;
     private Button addPost;
-    ArrayList<PostModel> postRecycler;
-    SwipeRefreshLayout refreshLayout;
-    Integer id;
+    private ArrayList<PostModel> postRecycler;
+    private SwipeRefreshLayout refreshLayout;
+    private Integer id;
 
     @Nullable
     @Override
@@ -50,16 +50,21 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        recyclerView = view.findViewById(R.id.post_recyclerview1);
-        addPost = view.findViewById(R.id.btn_add_post);
-        refreshLayout = view.findViewById(R.id.refresh);
-        postAdapter = new PostAdapter();
-        recyclerView.setAdapter(postAdapter);
 
+        init(view);
         getUsers();
         refreshList();
+        onClicks();
 
+    }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        getUsers();
+    }
+
+    private void onClicks() {
         postAdapter.setOnClickListener(new IOnClickListener() {
             @Override
             public void OnLongClick(int pos) {
@@ -87,36 +92,16 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
     }
 
-//    @Override
-//    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//
-//        if (requestCode == SendActivity.UPDATE_POST && requestCode == MainActivity.RESULT_OK) {
-//            if (data != null) {
-//                App.postService.updatePost(id, new PostService.PostCallback() {
-//                    @Override
-//                    public void onSucces(PostModel postModel) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onFailure(Throwable e) {
-//
-//                    }
-//                });
-//            }
-//        }
-//
-//    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        getUsers();
+    private void init(View view) {
+        recyclerView = view.findViewById(R.id.post_recyclerview1);
+        addPost = view.findViewById(R.id.btn_add_post);
+        refreshLayout = view.findViewById(R.id.refresh);
+        postAdapter = new PostAdapter();
+        recyclerView.setAdapter(postAdapter);
     }
+
 
     private void refreshList() {
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {

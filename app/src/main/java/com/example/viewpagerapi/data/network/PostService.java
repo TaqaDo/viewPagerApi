@@ -176,8 +176,8 @@ public class PostService {
         @PUT("posts/{postId}")
         Call<PostModel> updatePost(@Path("postId") Integer postId, @Body PostModel postModel);
 
-        @GET("posts?user={userId}")
-        Call<ArrayList<PostModel>> getUserPosts(@Query("userId") Integer userId );
+        @GET("posts?")
+        Call<ArrayList<PostModel>> getUserPosts(@Query("user") Integer userId );
 
 
     }

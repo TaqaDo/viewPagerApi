@@ -41,12 +41,19 @@ public class UsersFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        recyclerView = view.findViewById(R.id.post_recyclerview_users);
-        userAdapter = new UserAdapter();
-        recyclerView.setAdapter(userAdapter);
 
+        init(view);
         getUsersList();
-        
+        onClicks();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getUsersList();
+    }
+
+    private void onClicks() {
         userAdapter.setOnClickListener(new IOnClickListener() {
             @Override
             public void OnLongClick(int pos) {
@@ -60,15 +67,15 @@ public class UsersFragment extends Fragment {
                 startActivity(intent);
             }
         });
+    }
 
+    private void init(View view) {
+        recyclerView = view.findViewById(R.id.post_recyclerview_users);
+        userAdapter = new UserAdapter();
+        recyclerView.setAdapter(userAdapter);
 
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        getUsersList();
-    }
 
     private void getUsersList() {
         App.postService.getUsers(new PostService.PostArrayCallback() {

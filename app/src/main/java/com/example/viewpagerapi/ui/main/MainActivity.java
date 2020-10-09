@@ -29,19 +29,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        fragmentArrayList = new ArrayList<>();
-        fillFragment();
-        bottomNavigationView = findViewById(R.id.bottom_nav);
-        viewPager = findViewById(R.id.view_pager);
 
-        viewPager.setAdapter(new FragmentAdapter(fragmentArrayList, getSupportFragmentManager()));
-        viewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
-            @Override
-            public void onPageSelected(int position) {
-                super.onPageSelected(position);
-                bottomNavigationView.getMenu().getItem(position).setChecked(true);
-            }
-        });
+        init();
+        fillFragment();
+        setViewPager();
+        setBottomNav();
+
+    }
+
+    private void setBottomNav() {
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -55,6 +51,23 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+    }
+
+    private void setViewPager() {
+        viewPager.setAdapter(new FragmentAdapter(fragmentArrayList, getSupportFragmentManager()));
+        viewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+                bottomNavigationView.getMenu().getItem(position).setChecked(true);
+            }
+        });
+    }
+
+    private void init() {
+        fragmentArrayList = new ArrayList<>();
+        bottomNavigationView = findViewById(R.id.bottom_nav);
+        viewPager = findViewById(R.id.view_pager);
     }
 
     private void fillFragment() {
