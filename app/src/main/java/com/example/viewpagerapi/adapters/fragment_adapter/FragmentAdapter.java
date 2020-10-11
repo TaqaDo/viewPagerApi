@@ -1,4 +1,4 @@
-package com.example.viewpagerapi.adapters;
+package com.example.viewpagerapi.adapters.fragment_adapter;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;

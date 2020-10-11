@@ -20,11 +20,10 @@ import android.widget.Toast;
 import com.example.viewpagerapi.App;
 import com.example.viewpagerapi.R;
 import com.example.viewpagerapi.adapters.IOnClickListener;
-import com.example.viewpagerapi.adapters.PostAdapter;
+import com.example.viewpagerapi.adapters.post_adapter.PostAdapter;
 import com.example.viewpagerapi.data.model.PostModel;
-import com.example.viewpagerapi.data.network.PostService;
+import com.example.viewpagerapi.data.network.post_service.PostService;
 import com.example.viewpagerapi.ui.editactivity.EditActivity;
-import com.example.viewpagerapi.ui.main.MainActivity;
 import com.example.viewpagerapi.ui.sendactivity.SendActivity;
 
 import java.util.ArrayList;

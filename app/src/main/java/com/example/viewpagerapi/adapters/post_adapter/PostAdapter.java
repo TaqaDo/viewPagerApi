@@ -1,4 +1,4 @@
-package com.example.viewpagerapi.adapters;
+package com.example.viewpagerapi.adapters.post_adapter;
 
 import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.viewpagerapi.R;
+import com.example.viewpagerapi.adapters.IOnClickListener;
 import com.example.viewpagerapi.data.model.PostModel;
 
 import java.util.ArrayList;

@@ -9,13 +9,15 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.viewpagerapi.R;
-import com.example.viewpagerapi.adapters.FragmentAdapter;
+import com.example.viewpagerapi.adapters.fragment_adapter.FragmentAdapter;
 import com.example.viewpagerapi.ui.home.HomeFragment;
 import com.example.viewpagerapi.ui.profile.ProfileFragment;
 import com.example.viewpagerapi.ui.users.UsersFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
+
+import okhttp3.Credentials;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
         fillFragment();
         setViewPager();
         setBottomNav();
+
+        String header = Credentials.basic("dfd","dsdv");
 
     }
 

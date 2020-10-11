@@ -18,7 +18,7 @@ import com.example.viewpagerapi.R;
 import com.example.viewpagerapi.adapters.IOnClickListener;
 import com.example.viewpagerapi.adapters.UserAdapter.UserAdapter;
 import com.example.viewpagerapi.data.model.PostModel;
-import com.example.viewpagerapi.data.network.PostService;
+import com.example.viewpagerapi.data.network.post_service.PostService;
 import com.example.viewpagerapi.ui.userpostactivity.UserPostsActivity;
 
 import java.util.ArrayList;

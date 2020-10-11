@@ -4,17 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.viewpagerapi.App;
 import com.example.viewpagerapi.R;
 import com.example.viewpagerapi.data.model.PostModel;
-import com.example.viewpagerapi.data.network.PostService;
-
-import java.util.Random;
+import com.example.viewpagerapi.data.network.post_service.PostService;
 
 public class SendActivity extends AppCompatActivity {
 

@@ -10,7 +10,7 @@ import com.example.viewpagerapi.App;
 import com.example.viewpagerapi.R;
 import com.example.viewpagerapi.adapters.user_post_adapter.UserPostAdapter;
 import com.example.viewpagerapi.data.model.PostModel;
-import com.example.viewpagerapi.data.network.PostService;
+import com.example.viewpagerapi.data.network.post_service.PostService;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.example.viewpagerapi.data.network;
+package com.example.viewpagerapi.data.network.post_service;
 
 import com.example.viewpagerapi.data.model.PostModel;
 
@@ -27,6 +27,8 @@ public class PostService {
 
     PostApi service = retrofit.create(PostApi.class);
 
+
+
     public void getUsers(PostArrayCallback postArrayCallback) {
         Call<ArrayList<PostModel>> call = service.getUsers();
         call.enqueue(new Callback<ArrayList<PostModel>>() {
@@ -42,6 +44,7 @@ public class PostService {
             }
         });
     }
+
 
 
     public void getPosts(PostArrayCallback arrayCallback) {
@@ -62,6 +65,7 @@ public class PostService {
 
     }
 
+
     public void createPost(PostModel postModel, PostCallback postCallback) {
         Call<PostModel> call = service.createPost(postModel);
         call.enqueue(new Callback<PostModel>() {
@@ -79,6 +83,7 @@ public class PostService {
 
     }
 
+
     public void deletePost(Integer id, PostCallback postCallback) {
         Call<PostModel> call = service.deletePost(id);
         call.enqueue(new Callback<PostModel>() {
@@ -94,6 +99,7 @@ public class PostService {
             }
         });
     }
+
 
     public void updatePost(Integer id, PostModel postModel, PostCallback postCallback) {
         service.updatePost(id, postModel)
@@ -111,6 +117,7 @@ public class PostService {
                 });
     }
 
+
     public void getPost(Integer id, PostCallback postCallback) {
         Call<PostModel> call = service.getPost(id);
         call.enqueue(new Callback<PostModel>() {
@@ -126,6 +133,7 @@ public class PostService {
             }
         });
     }
+
 
     public void getUserPosts(Integer id , PostArrayCallback postArrayCallback) {
         Call<ArrayList<PostModel>> call = service.getUserPosts(id);

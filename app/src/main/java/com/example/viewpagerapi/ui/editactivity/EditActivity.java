@@ -11,7 +11,7 @@ import android.widget.EditText;
 import com.example.viewpagerapi.App;
 import com.example.viewpagerapi.R;
 import com.example.viewpagerapi.data.model.PostModel;
-import com.example.viewpagerapi.data.network.PostService;
+import com.example.viewpagerapi.data.network.post_service.PostService;
 
 public class EditActivity extends AppCompatActivity {
     private EditText title, content, user, group;
